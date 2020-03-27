@@ -1,0 +1,19 @@
+version: "2.1"
+
+services:
+  {% if ACTIVATE_DISCOVERY %}
+  discovery:
+      volumes:
+      - ${DEVSTACK_WORKSPACE}/edx-themes:/edx/app/edx-themes:cached
+  {% endif %}
+  {% if ACTIVATE_ECOMMERCE %}
+  ecommerce:
+      volumes:
+      - ${DEVSTACK_WORKSPACE}/edx-themes:/edx/app/edx-themes:cached
+  {% endif %}
+  lms:
+      volumes:
+      - ${DEVSTACK_WORKSPACE}/edx-themes:/edx/app/edx-themes:cached
+  studio:
+      volumes:
+      - ${DEVSTACK_WORKSPACE}/edx-themes:/edx/app/edx-themes:cached

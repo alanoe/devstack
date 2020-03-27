@@ -1,4 +1,5 @@
 -c constraints.txt
 
 docker-compose                      # For launching the devstack Docker containers
+Jinja2                              # for renderizing docker-compose templates
 PyYAML                              # For parsing configuration files while generating offline installers

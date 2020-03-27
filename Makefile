@@ -184,10 +184,12 @@ destroy: ## Remove all devstack-related containers, networks, and volumes
 	$(WINPTY) bash ./destroy.sh
 
 logs: ## View logs from containers running in detached mode
-	docker-compose -f docker-compose.yml -f docker-compose-analytics-pipeline.yml logs -f
+	#docker-compose -f docker-compose.yml -f docker-compose-analytics-pipeline.yml logs -f
+	docker-compose -f docker-compose.yml logs -f
 
 %-logs: ## View the logs of the specified service container
-	docker-compose -f docker-compose.yml -f docker-compose-analytics-pipeline.yml logs -f --tail=500 $*
+	#docker-compose -f docker-compose.yml -f docker-compose-analytics-pipeline.yml logs -f --tail=500 $*
+	docker-compose -f docker-compose.yml logs -f --tail=500 $*
 
 xqueue-logs: ## View logs from containers running in detached mode
 	docker-compose -f docker-compose-xqueue.yml logs -f xqueue
