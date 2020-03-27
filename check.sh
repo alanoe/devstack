@@ -111,6 +111,12 @@ if should_check analyticspipeline; then
         "make analytics-pipeline-devstack-test"
 fi
 
+if should_check marketing; then
+    echo "Seeing if we can curl root of Marketing site: "
+    run_check marketing_curl marketing \
+        "curl http://localhost:8080"
+fi
+
 echo "Successful checks:${succeeded:- NONE}"
 echo "Failed checks:${failed:- NONE}"
 if [[ "$succeeded" ]]; then

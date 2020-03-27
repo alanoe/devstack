@@ -22,7 +22,7 @@
 #   * Add the name of the service to ALL_SERVICES.
 #
 # Example usages:
-# ./provision.sh                          # Provision all services.
+# ./provision.sh                          # Provision all default services.
 # ./provision.sh lms ecommerce discovery  # Provision these three services.
 # ./provision.sh lms+ecommerce+discovery  # Same as previous command.
 
@@ -37,11 +37,14 @@ NC='\033[0m' # No Color
 
 # All provisionable services.
 # Note: leading and trailing space are necessary for if-checks.
-ALL_SERVICES=" lms ecommerce discovery credentials e2e forum notes registrar "
+ALL_SERVICES=" lms ecommerce discovery credentials e2e forum notes registrar analyticspipeline marketing "
+
+# Services provisioned by default when no argument is provided.
+DEFAULT_SERVICE_SET="lms ecommerce discovery credentials e2e forum notes registrar"
 
 # What should we provision?
 if [[ $# -eq 0 ]]; then
-	requested_services=$ALL_SERVICES
+	requested_services=$DEFAULT_SERVICE_SET
 else
 	arg_string=" $@ "
 	# Replace plus signs with spaces in order to allow plus-sign-separated
