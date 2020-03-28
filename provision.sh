@@ -35,12 +35,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
-# All provisionable services.
-# Note: leading and trailing space are necessary for if-checks.
-ALL_SERVICES=" lms ecommerce discovery credentials e2e forum notes registrar analyticspipeline marketing "
-
 # Services provisioned by default when no argument is provided.
 DEFAULT_SERVICE_SET="lms ecommerce discovery credentials e2e forum notes registrar"
+
+# All provisionable services.
+# Note: leading and trailing space are necessary for if-checks.
+ALL_SERVICES=" $DEFAULT_SERVICE_SET analyticspipeline marketing xqueue "
+
 
 # What should we provision?
 if [[ $# -eq 0 ]]; then

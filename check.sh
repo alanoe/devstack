@@ -105,6 +105,12 @@ if should_check credentials; then
         "curl http://localhost:18150/heartbeat"
 fi
 
+if should_check xqueue; then
+    echo "Checking xqueue status:"
+    run_check xqueue_heartbeat xqueue \
+        "curl http://localhost:18040/xqueue/status"
+fi
+
 if should_check analyticspipeline; then
     echo "Running Analytics Devstack tests: "
     run_check analyticspipeline_tests analyticspipeline \
