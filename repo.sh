@@ -124,6 +124,7 @@ _clone ()
 
 _checkout_and_update_branch ()
 {
+    git clean -df
     GIT_SYMBOLIC_REF="$(git symbolic-ref HEAD 2>/dev/null)"
     BRANCH_NAME=${GIT_SYMBOLIC_REF##refs/heads/}
     if [ "${BRANCH_NAME}" == "${OPENEDX_GIT_BRANCH}" ]; then
